@@ -176,7 +176,12 @@ my knowledge in building scalable and user-friendly applications.
 
     <h2>Contact Me</h2>
 
-    <form id="contact-form">
+    <form id="contact-form" action="https://formsubmit.co/santhiyasundaram97@gmail.com" method="POST">
+
+      <!-- Formsubmit will email submissions to the address above. -->
+      <input type="hidden" name="_subject" value="New message from portfolio">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://rajavalli396.github.io/portfolio/">
 
       <input id="name" name="name" type="text" placeholder="Enter your name" required>
 
@@ -198,20 +203,7 @@ my knowledge in building scalable and user-friendly applications.
 
   </footer>
 
-    <script>
-      // Send form data via mailto: (opens user's email client)
-      document.getElementById('contact-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-        const recipient = 'santhiyasundaram97@gmail.com';
-        const subject = `Portfolio message from ${name || 'Visitor'}`;
-        const bodyText = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-        const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
-        window.location.href = mailto;
-      });
-    </script>
+    <!-- Form submission handled by Formsubmit.co -->
 
 </body>
 
