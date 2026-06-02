@@ -176,13 +176,13 @@ my knowledge in building scalable and user-friendly applications.
 
     <h2>Contact Me</h2>
 
-    <form>
+    <form id="contact-form">
 
-      <input type="text" placeholder="Enter your name">
+      <input id="name" name="name" type="text" placeholder="Enter your name" required>
 
-      <input type="email" placeholder="Enter your email">
+      <input id="email" name="email" type="email" placeholder="Enter your email" required>
 
-      <textarea rows="5" placeholder="Your message"></textarea>
+      <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
 
       <button type="submit">Send Message</button>
 
@@ -197,6 +197,21 @@ my knowledge in building scalable and user-friendly applications.
     <p>© 2026 Rajavalli | All Rights Reserved</p>
 
   </footer>
+
+    <script>
+      // Send form data via mailto: (opens user's email client)
+      document.getElementById('contact-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const recipient = 'santhiyasundaram97@gmail.com';
+        const subject = `Portfolio message from ${name || 'Visitor'}`;
+        const bodyText = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+        const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+        window.location.href = mailto;
+      });
+    </script>
 
 </body>
 
